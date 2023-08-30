@@ -8,3 +8,11 @@ client = Mongo::Client.new('mongodb://stark:passtrash123@ds063892.mongolab.com:6
 client[:sleepyhollow_races].find.each do |race|
     puts race
 end
+
+net = Ai4r::NeuralNetwork::Backpropagation.new([4, 3, 2])
+
+1000.times do |i|
+    net.train(example[i], result[i])
+end
+
+net.eval([12, 48, 12, 25])

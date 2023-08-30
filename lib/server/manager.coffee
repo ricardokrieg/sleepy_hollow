@@ -22,7 +22,7 @@ class @Manager
             console.log "#{base_date}#{date} [START]"
 
             Scraper.get_race_urls url, Meteor.bindEnvironment (race_urls) ->
-                async.eachSeries race_urls, Meteor.bindEnvironment (race_url, async_races_callback) ->
+                async.eachSeries race_urls, Meteor.bindEnvironment((race_url, async_races_callback) ->
                     race_url = base_url + race_url
 
                     try
@@ -35,7 +35,7 @@ class @Manager
                         console.log e
                         async_races_callback()
                     # try
-                , (error) ->
+                ), (error) ->
                     throw error if error
 
                     console.log "#{base_date}#{date} [END]"
