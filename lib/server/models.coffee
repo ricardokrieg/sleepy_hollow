@@ -1,0 +1,6 @@
+@Horses = new Meteor.Collection('sleepyhollow_horses')
+@Jockeys = new Meteor.Collection('sleepyhollow_jockeys')
+@Races = new Meteor.Collection('sleepyhollow_races')
+@Runners = new Meteor.Collection('sleepyhollow_runners')
+@Tracks = new Meteor.Collection('sleepyhollow_tracks')
+@Trainers = new Meteor.Collection('sleepyhollow_trainers')
