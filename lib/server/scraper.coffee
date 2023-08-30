@@ -157,7 +157,7 @@ class @Scraper
                     race_distance: race_data['distance'],
                     race_age: race_data['age'],
                     race_prize: race_data['prize'],
-                    race_runners: race_data['runners'],
+                    race_initial_runners: race_data['initial_runners'],
                     race_type: race_data['type'],
                     race_winning_time: race_data['winning_time'],
                     race_ran: race_data['ran']
