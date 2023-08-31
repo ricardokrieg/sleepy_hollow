@@ -43,7 +43,7 @@ class @Manager
                 ), (error) ->
                     throw error if error
 
-                    console.log "#{base_date}#{date} [END]"
+                    console.log "#{date} [END]"
                     async_dates_callback()
                 # each
             # get_race_urls
