@@ -116,7 +116,8 @@ class @Scraper
             $('.extra-info').filter ->
                 extra_info = $(this).children().first().text()
 
-                race_data['winning_time'] = /^.*Winning\ Time:\ (.*?)$/i.exec(extra_info)[1]
+                winning_time_matches = /^.*Winning\ Time:\ (.*?)$/i.exec(extra_info)
+                race_data['winning_time'] = winning_time_matches[1] if winning_time
                 race_data['ran'] = /^(.*?)\ Ran.*$/i.exec(extra_info)[1]
             # filter
 
