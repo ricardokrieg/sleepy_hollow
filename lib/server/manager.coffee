@@ -2,27 +2,32 @@ request = Meteor.npmRequire('request')#.defaults({'proxy': 'http://165.225.166.1
 cheerio = Meteor.npmRequire('cheerio')
 util = Meteor.npmRequire('util')
 async = Meteor.npmRequire('async')
+moment = Meteor.npmRequire('moment')
 
 class @Manager
     @scrape = ->
         console.log "Scraping..."
 
         base_url = 'http://form.timeform.betfair.com'
-        base_date = '201507'
 
-        dates = [
-            '01', '02', '03', '04', '05', '06', '07', '08', '09', '10',
-            '11', '12', '13', '14', '15', '16', '17', '18', '19', '20',
-            '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31',
-        ]
+        date = moment('2013-01-01')
+        last_date = moment('2015-07-31')
+
+        dates = [date.format('YYYYMMDD')]
+
+        while date.isBefore(last_date)
+            date.add(1, 'days')
+
+            dates.push(date.format('YYYYMMDD'))
+        # while
 
         async.eachSeries dates, (date, async_dates_callback) ->
-            url = "#{base_url}/daypage?date=#{base_date}#{date}"
+            url = "#{base_url}/daypage?date=#{date}"
 
-            console.log "#{base_date}#{date} [START]"
+            console.log "#{date} [START]"
 
             Scraper.get_race_urls url, Meteor.bindEnvironment (race_urls) ->
-                async.eachSeries race_urls, Meteor.bindEnvironment((race_url, async_races_callback) ->
+                async.each race_urls, Meteor.bindEnvironment((race_url, async_races_callback) ->
                     race_url = base_url + race_url
 
                     try

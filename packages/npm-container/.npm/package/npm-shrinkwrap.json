@@ -92,6 +92,9 @@
         }
       }
     },
+    "moment": {
+      "version": "2.10.6"
+    },
     "request": {
       "version": "2.60.0",
       "dependencies": {
