@@ -4,7 +4,7 @@ if Meteor.isServer
     Meteor.startup ->
         console.log "Started"
 
-        Manager.scrape()
+        # Manager.scrape()
         # Manager.compute_accuracy()
     # startup
 # isServer
