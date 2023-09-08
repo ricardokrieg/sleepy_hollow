@@ -3,16 +3,23 @@ require 'mongo'
 
 Mongo::Logger.logger.level = ::Logger::FATAL
 
-client = Mongo::Client.new('mongodb://stark:passtrash123@ds063892.mongolab.com:63892/general')
+client = Mongo::Client.new('mongodb://potyshopping.com.br:3001/meteor')
 
-client[:sleepyhollow_races].find.each do |race|
-    puts race
+horse_data = {}
+
+client[:sleepyhollow_horses].find.each do |horse|
+    n_runners = client[:sleepyhollow_runners].find({horse_id: horse['_id']}).count
+
+    horse_data[n_runners] ||= 0
+    horse_data[n_runners] += 1
 end
 
-net = Ai4r::NeuralNetwork::Backpropagation.new([4, 3, 2])
+p horse_data
 
-1000.times do |i|
-    net.train(example[i], result[i])
-end
+# net = Ai4r::NeuralNetwork::Backpropagation.new([4, 3, 2])
 
-net.eval([12, 48, 12, 25])
+# 1000.times do |i|
+#     net.train(example[i], result[i])
+# end
+
+# net.eval([12, 48, 12, 25])
