@@ -1,3 +1,6 @@
+# export NUPIC=/media/ricardo/extra/opt/nupic/
+# export NTA_CONF_PATH=/home/ricardo/.local/lib/python2.7/site-packages/nupic-0.1.0-py2.7.egg/nupic/support/
+
 import os
 import pprint
 
@@ -66,6 +69,5 @@ def swarm(filePath):
 # swarm
 
 if __name__ == "__main__":
-    print DESCRIPTION
     swarm(INPUT_FILE)
 # __main__

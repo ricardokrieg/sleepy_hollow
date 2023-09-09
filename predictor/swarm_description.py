@@ -32,6 +32,6 @@ SWARM_DESCRIPTION = {
     ],
     "predictedField": "kw_energy_consumption"
   },
-  "iterationCount": -1,
-  "swarmSize": "medium"
+  "iterationCount": 10,
+  "swarmSize": "small"
 }
